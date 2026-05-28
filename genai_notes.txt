@@ -1,0 +1,111 @@
+Rule based systems --> Regex
+NLP 
+
+1. tokenisation
+"welcome to the python class, and python is easy"
+welcome,1 --> bow
+python,1
+class,1
+python,1
+easy,1
+
+2. sentiment analysis
+doc with pos words 
+doc with neg words
+
+3. ML --> TFIDF, Vectorisation
+
+4. DL (RNN/LSTM)
+
+5. Word Embeddings
+
+he and his dog were walking down the street, and it bit the lady so she ----
+
+6. Transformers --> Self attention --> K,Q,V
+
+Encoders --> Sentiment analysis
+Decoders --> Generation
+
+7. Tokens --> word, sub word, character based etc
+
+8. Context window
+
+8. Parameters --> learned parameters
+
+9. Hyper tuning parameters --> Temperature, top p, stop sequence, 
+frequency and present penalty
+
+10. Prompting
+    =========
+
+ Roles --> System roles, user role, assistant role
+ Structure --> output format
+ Target group, Goal
+ 
+ Zero shot, One shot, Few shot, COT, Self consistancy
+
+ message  --> p1 --> hi iam pavan, response --> hello pavan
+	      p2 --> what's my name? --> i don't know
+
+ no memory
+ 
+ chat  --> p1 --> hi iam pavan (3 tokens) 
+		  hello pavan(2)
+	   p2 --> who i am (3 tokens + (3+2 tokens))
+	
+
+ Memory
+ ======
+
+ 1. Conversation memory --> All previous token are passed
+
+ 2. Entity memory --> Implemented in Langchain, External db's (cosmos db,
+ postgre sql), caching (redis)
+
+  Pune --> Maharasthra
+
+  Name --> Pavan
+
+  City --> Pune
+
+  Diet --> Vegetarian
+
+3. Knowledge base --> RAG
+
+   LLM
+
+   Prompt --> Embedding --> embedding model 1
+   
+   Az ai search, solr, elastic search
+
+   Vector db --> Chunking, embedding, index[ecommerce --> product catalogue, order details, return policies, discount info],
+                 stored 
+
+   Retriever --> keyword, semantic, similarity, recursive, reranking, multi query
+
+   LLM --> embedding --> augmentation --> response
+
+
+ To build RAG in Azure
+
+1. Foundry resource
+2. Deploy a llm model and an embedding model
+3. Connect your storage (Management center)
+4. Create ai search
+5. Create an index/knowledge base from storage
+6. Connect the ai search in foundry (Management center)
+7. Add knowldge base/data source --> map the index, content, snippet etc if required.
+   		
+
+
+
+
+
+
+
+
+
+
+
+
+
