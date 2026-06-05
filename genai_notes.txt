@@ -95,6 +95,17 @@ frequency and present penalty
 5. Create an index/knowledge base from storage
 6. Connect the ai search in foundry (Management center)
 7. Add knowldge base/data source --> map the index, content, snippet etc if required.
+
+ 
+
+
+
+
+
+
+
+
+
    		
 
 

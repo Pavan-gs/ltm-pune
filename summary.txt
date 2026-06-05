@@ -1,0 +1,583 @@
+Python
+======
+Data structures --> Strings, lists, tuples, dict, sets
+Conditions, iterations, functions, oops
+
+Modules 
+=======
+Numpy --> n dimentional arrays --> arr[:,:]
+Pandas --> Series, Dataframes --> [], loc, iloc
+Data manipulation, data cleaning
+ML --> Supervised, unsupervised
+Supervised --> Linear, Non-linear, Ensemble
+Regression --> continuous, rmse
+Classification --> Categorical/discrete, accuracy, precision, recall,
+f1-score
+
+Ml model 
+========
+1. EDA, Data cleaning, manipulation, analysis, visualise
+2. check the distribution of y var, x, y, train & test
+3. fit the model, predict, evaluate the results
+
+Data preparation
+================
+Data Transformation --> Standardisation, Normalisation
+Dummy variables
+Feature selection --> RFE, Kbest, P-value
+Feature reduction --> PCA, LDA
+Class imbalances --> SMOTE
+Cross validation --> k-fold
+
+Azure
+=====
+Pay as you go, on demand service, Scalable, Managed
+
+IAAS
+SAAS
+PAAS
+NAAS
+IDAAS --> Entra ID
+
+Managed services
+================
+Storage
+--------
+Blobs
+Files
+Tables
+Queues
+Disc
+
+ADLS gen 2
+
+Security --> Key-vault, Secrets, Certificates
+Connection strings
+Access key
+SAS
+
+Monitoring, alerts
+
+AZ ML
+=====
+Workspace --> studio
+SDK, Designer, 
+Auto ML --> Created data asset, Applied feature engineering,
+built models, observed child jobs, evaluation metrics,
+registered the model, deployed as a rest end point,
+used the scoring script, consumed the model using rest api url, key
+
+Cognitive services --> pre-built/custom models
+==================
+Speech
+OCR/doc intelligence
+Vision
+
+Restapi endpoint--> consumed .net as backend, react as front-end
+
+Gen AI
+======
+NLP --> Regex, Tokenisation, POS, NER, Vectorisation/tfidf
+RNN/LSTM
+Word embeddings --> Static meaning/representation
+Transformers --> self attention mechanism --> K, Q, V
+Encoders --> Masked models --> sentiment, classification
+Decoders --> Generation --> softmax (probability)
+
+Prompting
+=========
+Zero, single, few shot, COT, self consistancy
+System prompt, use and assistant prompt
+TG, about you, structured output
+
+Evaluations
+===========
+Bleu, Rogue-1, rogue-l, roberta, bert score, ragas
+
+LLM
+===
+Parameters --> Weights matrix
+Tokens --> Word based, sub word/char based
+Context window
+Temperature
+
+Memory
+======
+Conversational, summary
+Entity memory
+
+Tools
+=====
+Function
+Database, CRM, ERP, Ticketing, applications
+API --> weather, booking, trading
+
+RAGS
+====
+LLM
+Embedding model
+
+Vector database --> AI search
+Chunking --> AI search
+Embedding --> Embedding model
+Vectors --> indexed --> search --> ai search
+Retrievers --> keyword, semantic, hybrid, multi query, recursive, reranking
+
+Parameters of Az foundry for llms in playground
+===============================================
+Temperature, top-p, stop sequence, frequency penalty, presence penalty
+
+Agents --> proactive --> tools, knowledge base, guard rails
+guard rails --> PII, custom block words
+Responsible ai
+
+Agent --> understand the intent of the customer and call
+appropriate tools, rags etc and do the tasks
+
+Multi agent --> MAF, code first framework, a2a
+
+Co-pilot studio --> low code no code framework
+
+Function Calling: Schema Design & Response Parsing
+==================================================
+{
+  "order_id": "1001"
+}
+is better than
+{
+  "id":"1001"
+}
+
+Good schema=Easy for LLM
+Bad schema=LLM confusion
+
+Response Parsing
+================
+{
+  "status":"Delivered",
+  "delivery_date":"2026-06-01"
+}
+
+Summarize order status.
+
+JSON
+↓
+Parsed
+↓
+Natural Language
+
+Multi-Step Tool Chaining
+========================
+User:
+Return my order.
+
+Tool 1:
+Get Order Status
+
+↓
+
+Tool 2:
+Check Return Eligibility
+
+↓
+
+Tool 3:
+Create Return Ticket
+
+Three tool calls.
+
+One user request.
+
+State Passing
+=============
+Tool 1 returns:
+{
+  "order_id":"1001",
+  "status":"Delivered"
+}
+Tool 2 consumes:
+{
+  "order_id":"1001"
+}
+
+That passing of information is:
+State Passing
+
+Error Handling
+==============
+Retry
+Fallback Message
+Escalation
+
+Logging Agent Actions
+-===================-
+{
+  "timestamp":"...",
+  "user":"...",
+  "tool":"get_order_status",
+  "input":"1001",
+  "output":"Delivered"
+}
+
+Planning Agent vs Reactive Agent
+================================
+Reactive Agent
+User
+↓
+Question
+↓
+Immediate Tool Call
+
+Example:
+
+Track order 1001
+
+Call tool.
+
+Done.
+
+Planning Agent
+Goal
+↓
+Create Plan
+↓
+Execute Steps
+
+Example:
+
+Process return request
+
+Plan:
+
+Step 1
+Check order
+
+Step 2
+Check eligibility
+
+Step 3
+Create ticket
+
+Step 4
+Notify customer
+
+MAF is very suitable for this discussion.
+
+Multi-Tool Orchestration
+========================
+Example:
+
+User:
+Return my order.
+
+Agent uses:
+
+Order Tool
++
+Return Tool
++
+Email Tool
++
+Teams Tool
+
+Multiple tools.
+
+Type of Agents
+==============
+
+1. Declarative Agents
+
+You define:
+
+Instructions
+Knowledge
+Actions
+Guardrails
+
+and Microsoft handles orchestration.
+
+Example:
+
+HR Assistant
+
+You tell it:
+
+You are an HR assistant.
+Use HR documents.
+Use Leave Approval workflow.
+
+The platform decides when to use:
+
+Knowledge
+Actions
+Topics
+Workflows
+
+This is the newest and preferred Copilot Studio approach.
+
+2. Topic-Based Agents (Traditional)
+
+Older chatbot style.
+
+Example:
+
+Refund
+
+Trigger:
+
+refund
+money back
+return item
+
+Flow:
+
+Ask Question
+↓
+Condition
+↓
+Response
+
+Very deterministic.
+
+3. Generative Agents
+
+Use:
+
+Generative Orchestration
+
+Agent decides:
+
+Knowledge?
+Workflow?
+Action?
+Another Agent?
+
+This is what Microsoft is pushing now.
+
+4. Knowledge-Based Agents
+
+Primary capability:
+
+RAG
+
+Sources:
+
+PDF
+SharePoint
+Website
+Dataverse
+AI Search
+
+Questions:
+
+What is leave policy?
+
+Agent retrieves and answers.
+
+5. Action-Oriented Agents
+
+Primary capability:
+
+Do something
+
+Examples:
+
+Create Ticket
+Submit Leave
+Track Order
+Send Email
+Create Teams Post
+
+Uses:
+
+Workflows
+Connectors
+APIs
+6. Multi-Agent Systems
+
+Newer capability.
+
+Example:
+
+HR Agent
+IT Agent
+Finance Agent
+
+Orchestrator routes requests.
+
+7. Autonomous Agents
+
+Goal driven.
+
+Example:
+
+Monitor mailbox
+Identify invoices
+Create approval requests
+Notify finance
+
+Without user intervention.
+
+Very common Copilot Studio roadmap discussion.
+
+8. Workflow-Driven Agents
+
+Agent invokes:
+
+Workflow
+
+for structured business processes.
+
+Example:
+
+Leave Request
+↓
+Approval
+↓
+Notification
+
+9. Conversational Agents
+
+Traditional chatbot experience.
+
+Example:
+
+FAQ Bot
+HR Bot
+Support Bot
+
+Maintains context.
+
+10. Enterprise Copilots
+
+Combination of everything.
+
+Example:
+
+HR Copilot
+
+Knowledge
++
+Actions
++
+Workflows
++
+Teams
++
+Outlook
++
+Memory
+
+Concepts to Know in Current Copilot Studio
+Agent Types
+Declarative Agent
+Generative Agent
+Topic-Based Agent
+Multi-Agent
+Autonomous Agent
+
+Knowledge
+---------
+Files
+Websites
+SharePoint
+Dataverse
+Knowledge Sources
+
+Actions
+-------
+Connectors
+Power Automate
+OpenAPI
+Custom APIs
+Workflows
+
+Orchestration
+--------------
+Classic Orchestration
+Generative Orchestration
+
+Memory
+------
+Conversation Context
+Session Memory
+Long-term Knowledge
+
+Governance
+----------
+Authentication
+Security
+DLP Policies
+Environment Management
+
+Enterprise Integration
+----------------------
+Teams
+Outlook
+Power Automate
+Dataverse
+SharePoint
+Azure AI Foundry
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

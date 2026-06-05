@@ -9,6 +9,7 @@ def get_order_status(req: func.HttpRequest):
     order_id = req.params.get("order_id")
 
     orders = {
+        
         "1001": "Delivered",
         "1002": "Shipped",
         "1003": "Processing"
